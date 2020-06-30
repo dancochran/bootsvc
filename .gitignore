@@ -1,5 +1,11 @@
 target/
 
+#Eclipse project files
+.classpath
+.factorypath
+.project
+.settings/
+
 # Compiled class file
 *.class
 
