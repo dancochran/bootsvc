@@ -1,0 +1,14 @@
+debug: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  port: 8100
+
+springdoc:
+  packagesToScan: com.mtb.ese.bootsvc
+
