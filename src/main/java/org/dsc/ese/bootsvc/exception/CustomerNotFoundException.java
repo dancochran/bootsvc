@@ -1,4 +1,4 @@
-package com.mtb.ese.bootsvc.exception;
+package org.dsc.ese.bootsvc.exception;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.http.HttpStatus;

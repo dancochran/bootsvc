@@ -1,8 +1,8 @@
-package com.mtb.ese.bootsvc.repository;
+package org.dsc.ese.bootsvc.repository;
 
-import com.mtb.ese.bootsvc.model.Customer;
 import java.util.List;
 
+import org.dsc.ese.bootsvc.model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long>

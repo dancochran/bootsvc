@@ -1,10 +1,11 @@
-package com.mtb.ese.bootsvc.controller;
+package org.dsc.ese.bootsvc.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.dsc.ese.bootsvc.model.Customer;
+import org.dsc.ese.bootsvc.service.CustomerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mtb.ese.bootsvc.model.Customer;
-import com.mtb.ese.bootsvc.service.CustomerService;
-import com.mtb.ese.bootsvc.exception.CustomerNotFoundException;
-
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
+import static org.dsc.ese.bootsvc.config.OpenApiConfig.BASIC_AUTH_SECURITY_SCHEME;
 
 @RestController
 @Tag(name = "customer", description = "The Customer API")
@@ -40,7 +38,8 @@ public class BootsvcController
 		this.customerService = customerService;
 	}
 	
-	@Operation(summary = "Add a new customer")
+	@Operation(summary = "Add a new customer",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@ApiResponses(value = { 
 			  @ApiResponse(responseCode = "200", description = "Customer added successfully", 
 			    content = { @Content(mediaType = "application/json", 
@@ -57,7 +56,8 @@ public class BootsvcController
 		return customerService.addCustomer(customer);
 	}
 	
-	@Operation(summary = "Update a customer")
+	@Operation(summary = "Update a customer",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@RequestMapping(value = "/customer", 
 					method = RequestMethod.PUT, 
 					consumes = {"application/json" },
@@ -68,7 +68,8 @@ public class BootsvcController
 		return customerService.updateCustomer(customer);
 	}
 	
-	@Operation(summary = "Get a list of all customers")
+	@Operation(summary = "Get a list of all customers",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@RequestMapping(value = "/customer", method = RequestMethod.GET, produces = {
 			"application/json" })
 	public List<Customer> listCustomers()
@@ -77,7 +78,8 @@ public class BootsvcController
 		return customerService.getCustomerList();
 	}
 
-	@Operation(summary = "Get a list of customers by lastname")
+	@Operation(summary = "Get a list of customers by lastname",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@RequestMapping(value = "/customer/search/lastname/{lastname}", method = RequestMethod.GET, produces = {
 			"application/json" })
 	public List<Customer> findCustomersByLastname(@PathVariable String lastname)
@@ -86,7 +88,8 @@ public class BootsvcController
 		return customerService.getCustomersByLastname(lastname);
 	}
 
-	@Operation(summary = "Get a single customer by id")
+	@Operation(summary = "Get a single customer by id",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = {
 			"application/json" })
 	public Customer getCustomer(@PathVariable Long id)
@@ -95,7 +98,8 @@ public class BootsvcController
 		return customerService.getCustomer(id);
 	}
 
-	@Operation(summary = "Delete a single customer by id")
+	@Operation(summary = "Delete a single customer by id",
+			security = {@SecurityRequirement(name = BASIC_AUTH_SECURITY_SCHEME)})
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
 	public void deleteCustomer(@PathVariable Long id)
 	{

@@ -1,11 +1,11 @@
-package com.mtb.ese.bootsvc.service;
+package org.dsc.ese.bootsvc.service;
 
 import java.util.List;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import com.mtb.ese.bootsvc.model.Customer;
+import org.dsc.ese.bootsvc.model.Customer;
 
 public interface CustomerService
 {

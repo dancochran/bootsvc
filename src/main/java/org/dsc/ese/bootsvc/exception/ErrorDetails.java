@@ -1,4 +1,4 @@
-package com.mtb.ese.bootsvc.exception;
+package org.dsc.ese.bootsvc.exception;
 
 import java.util.Date;
 

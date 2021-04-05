@@ -1,4 +1,4 @@
-package com.mtb.ese.bootsvc;
+package org.dsc.ese.bootsvc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

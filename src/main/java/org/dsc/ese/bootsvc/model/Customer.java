@@ -1,4 +1,4 @@
-package com.mtb.ese.bootsvc.model;
+package org.dsc.ese.bootsvc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

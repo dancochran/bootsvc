@@ -1,4 +1,4 @@
-package com.mtb.ese.bootsvc.service;
+package org.dsc.ese.bootsvc.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,15 +6,14 @@ import java.util.Optional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
+import org.dsc.ese.bootsvc.exception.CustomerNotFoundException;
+import org.dsc.ese.bootsvc.model.Customer;
+import org.dsc.ese.bootsvc.repository.CustomerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import com.mtb.ese.bootsvc.exception.CustomerNotFoundException;
-import com.mtb.ese.bootsvc.model.Customer;
-import com.mtb.ese.bootsvc.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService
