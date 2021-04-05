@@ -1,9 +1,9 @@
 debug: false
 
 ldap:
-  userDnPattern: cn={0}
-  groupSearchBase: ou=Groups,dc=tenteenth,dc=com
-  groupSearchFilter: cn={0}
+  userDnPattern: cn={0}, ou=Users
+  groupSearchBase: ou=Groups
+  groupSearchFilter: (uniqueMember={0})
   
 management:
   endpoints:

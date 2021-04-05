@@ -52,10 +52,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 
 		//auth.ldapAuthentication().contextSource().url(url).managerDn(ldapProperties.getUsername())
 		//		.managerPassword(ldapProperties.getPassword()).and().userDnPatterns(userDnPattern);
-		auth.ldapAuthentication().contextSource().url(url).managerDn(ldapProperties.getUsername())
-		.managerPassword(ldapProperties.getPassword()).and().userDnPatterns(userDnPattern);
+		//auth.ldapAuthentication().contextSource().url(url).managerDn(ldapProperties.getUsername())
+		//.managerPassword(ldapProperties.getPassword()).and().userDnPatterns(userDnPattern);
 		//auth.ldapAuthentication().groupSearchBase(groupSearchBase);
 		//auth.ldapAuthentication().groupSearchFilter(groupSearchFilter);
+		
+		auth.ldapAuthentication()
+			.userDnPatterns(userDnPattern)
+			.groupSearchBase(groupSearchBase)
+			.groupSearchFilter(groupSearchFilter)
+			.contextSource()
+				.url(url)
+				.managerDn(ldapProperties.getUsername())
+				.managerPassword(ldapProperties.getPassword());
+				
+			
 	}
 	
 }
